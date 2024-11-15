@@ -1,0 +1,54 @@
+[gd_scene load_steps=14 format=3 uid="uid://c5aenov15t6ka"]
+
+[ext_resource type="Script" path="res://scripts/Music_Manager.gd" id="1_4gled"]
+[ext_resource type="AudioStream" uid="uid://dh17dhmvq8vqq" path="res://assets/music/Tier 1_1.wav" id="2_3463d"]
+[ext_resource type="AudioStream" uid="uid://b7sosth1hnayw" path="res://assets/music/Tier 2_1.wav" id="3_ja00h"]
+[ext_resource type="AudioStream" uid="uid://rc64cv218bv8" path="res://assets/music/Tier 3_1.wav" id="4_wuo8u"]
+[ext_resource type="AudioStream" uid="uid://c5kbt4uyu4dfr" path="res://assets/music/Tier 4_1.wav" id="5_ei87t"]
+[ext_resource type="AudioStream" uid="uid://0tedcjfy7yxp" path="res://assets/music/Tier 5_1.wav" id="6_t3g5j"]
+[ext_resource type="AudioStream" uid="uid://b5jot7ayiyyb2" path="res://assets/music/Tier 6_1.wav" id="7_3xpce"]
+[ext_resource type="AudioStream" uid="uid://c1yf30bi3wvlo" path="res://assets/music/Tier 7_1.wav" id="8_yd5v2"]
+[ext_resource type="AudioStream" uid="uid://j8egue1aw4lw" path="res://assets/music/Tier 8_1.wav" id="9_yp4xk"]
+[ext_resource type="AudioStream" uid="uid://b8g5es6evcmfw" path="res://assets/music/Tier 9_1.wav" id="10_m0gsx"]
+[ext_resource type="AudioStream" uid="uid://lfuvxulqxl06" path="res://assets/music/Tier 10_1.wav" id="11_wl3yl"]
+[ext_resource type="AudioStream" uid="uid://dxe8nh1qmt5fu" path="res://assets/sounds/loud-wind.wav" id="12_63uo4"]
+[ext_resource type="AudioStream" uid="uid://dhrk162fsu3tf" path="res://assets/sounds/cool-wind.mp3" id="13_ikuyx"]
+
+[node name="Music_Manager" type="Node"]
+script = ExtResource("1_4gled")
+
+[node name="Tier1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3463d")
+
+[node name="Tier2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ja00h")
+
+[node name="Tier3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wuo8u")
+
+[node name="Tier4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ei87t")
+
+[node name="Tier5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_t3g5j")
+
+[node name="Tier6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3xpce")
+
+[node name="Tier7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_yd5v2")
+
+[node name="Tier8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_yp4xk")
+
+[node name="Tier9" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_m0gsx")
+
+[node name="Tier10" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_wl3yl")
+
+[node name="HardWind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_63uo4")
+
+[node name="LightWind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ikuyx")

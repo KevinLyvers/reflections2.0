@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7e0ug3qvxvgf"]
+
+[ext_resource type="Script" path="res://scripts/Audio_Manager.gd" id="1_tsiy4"]
+[ext_resource type="AudioStream" uid="uid://coiu3gwf3417k" path="res://assets/sounds/Fall_1.wav" id="2_curdk"]
+[ext_resource type="AudioStream" uid="uid://dy0lq0lbt6pqw" path="res://assets/sounds/Collide_1.wav" id="2_vo4rl"]
+[ext_resource type="AudioStream" uid="uid://xcnjq5gkf7q1" path="res://assets/sounds/Goal_1.wav" id="4_sy3o2"]
+[ext_resource type="AudioStream" uid="uid://qr2dnvokvmhy" path="res://assets/sounds/Slide_1.wav" id="5_c7ryw"]
+
+[node name="Audio_Manager" type="Node"]
+script = ExtResource("1_tsiy4")
+
+[node name="Fall_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_curdk")
+volume_db = -18.0
+
+[node name="Collide_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vo4rl")
+volume_db = -18.0
+
+[node name="Win_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sy3o2")
+volume_db = -12.0
+
+[node name="Slide_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c7ryw")
+volume_db = -18.0

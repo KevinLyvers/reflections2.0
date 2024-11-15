@@ -1,0 +1,230 @@
+[gd_scene load_steps=20 format=3 uid="uid://bbksnlabw8tru"]
+
+[ext_resource type="Script" path="res://scripts/Generic_Level.gd" id="1_8u86f"]
+[ext_resource type="Script" path="res://scripts/Mirror.gd" id="2_4oqx8"]
+[ext_resource type="Texture2D" uid="uid://0gwymxd31dt5" path="res://assets/sprites/Ice(1)-Sheet.png" id="3_ypxc0"]
+[ext_resource type="Texture2D" uid="uid://s2ewmoh6cyge" path="res://assets/sprites/Dark_Water.png" id="4_hfmod"]
+[ext_resource type="Texture2D" uid="uid://nv51sabdxxa0" path="res://assets/sprites/Slide.png" id="5_gckml"]
+[ext_resource type="Script" path="res://scripts/Penguin.gd" id="6_ftoc1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2u3w"]
+texture = ExtResource("3_ypxc0")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = 1
+1:0/0 = 0
+1:0/0/custom_data_0 = 2
+2:0/0 = 0
+2:0/0/custom_data_0 = 4
+3:0/0 = 0
+3:0/0/custom_data_0 = 3
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usymj"]
+texture = ExtResource("4_hfmod")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ne04l"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 2
+sources/0 = SubResource("TileSetAtlasSource_i2u3w")
+sources/2 = SubResource("TileSetAtlasSource_usymj")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27nd2"]
+radius = 14.0357
+
+[sub_resource type="Animation" id="Animation_xn3px"]
+resource_name = "Down"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_vfq14"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_arv0h"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_meeht"]
+resource_name = "Left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_bhvw1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u3ba5"]
+resource_name = "Right"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_dx436"]
+resource_name = "Up"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_2x5ta"]
+resource_name = "Win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfyxp"]
+_data = {
+"Down": SubResource("Animation_xn3px"),
+"Fall": SubResource("Animation_vfq14"),
+"Idle": SubResource("Animation_arv0h"),
+"Left": SubResource("Animation_meeht"),
+"RESET": SubResource("Animation_bhvw1"),
+"Right": SubResource("Animation_u3ba5"),
+"Up": SubResource("Animation_dx436"),
+"Win": SubResource("Animation_2x5ta")
+}
+
+[node name="Generic" type="Node2D"]
+script = ExtResource("1_8u86f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -4)
+zoom = Vector2(2, 2)
+
+[node name="Mirror" type="Node2D" parent="."]
+script = ExtResource("2_4oqx8")
+
+[node name="TileMap" type="TileMap" parent="Mirror"]
+tile_set = SubResource("TileSet_ne04l")
+format = 2
+layer_0/tile_data = PackedInt32Array(262144, 65536, 0, 196608, 65536, 0, 131072, 65536, 0, 65536, 65536, 0, 0, 65536, 0, -65536, 65536, 0, -131072, 65536, 0, -196608, 65536, 0, -262144, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, -327676, 65536, 0, -327675, 65536, 0, -327674, 65536, 0, -327673, 65536, 0, -327672, 65536, 0, -262136, 65536, 0, -196600, 65536, 0, -131064, 65536, 0, -65528, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, -262143, 131072, 0, -196606, 0, 0, -131069, 0, 0, -65532, 196608, 0, -196607, 0, 0, -131071, 0, 0, -65535, 196608, 0, 1, 2, 0, 65537, 2, 0, 131073, 0, 0, 196609, 196608, 0, -262142, 0, 0, -131070, 0, 0, -65534, 196608, 0, 2, 2, 0, 65538, 0, 0, 131074, 0, 0, 196610, 196608, 0, -262141, 0, 0, -196605, 0, 0, -65533, 196608, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 196608, 0, -262140, 0, 0, -196604, 0, 0, -131068, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 196608, 0, -262139, 0, 0, -196603, 0, 0, -131067, 0, 0, -65531, 196608, 0, 5, 2, 0, 65541, 0, 0, 131077, 0, 0, 196613, 196608, 0, -262138, 0, 0, -196602, 0, 0, -131066, 0, 0, -65530, 0, 0, 6, 2, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, -262137, 0, 0, -196601, 0, 0, -131065, 0, 0, -65529, 196608, 0, 7, 2, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0)
+
+[node name="Penguin" type="Sprite2D" parent="Mirror"]
+position = Vector2(32, 64)
+texture = ExtResource("5_gckml")
+centered = false
+hframes = 3
+vframes = 4
+script = ExtResource("6_ftoc1")
+tilemap_path = NodePath("../TileMap")
+
+[node name="TileDetector" type="Area2D" parent="Mirror/Penguin"]
+position = Vector2(-18, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror/Penguin/TileDetector"]
+position = Vector2(31, 35)
+shape = SubResource("CircleShape2D_27nd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mirror/Penguin"]
+libraries = {
+"": SubResource("AnimationLibrary_bfyxp")
+}
+
+[connection signal="animation_finished" from="Mirror/Penguin/AnimationPlayer" to="Mirror/Penguin" method="_on_animation_player_animation_finished"]

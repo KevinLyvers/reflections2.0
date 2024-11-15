@@ -1,0 +1,214 @@
+[gd_scene load_steps=20 format=3 uid="uid://dajex62vknt8d"]
+
+[ext_resource type="Script" path="res://scripts/Generic_Level.gd" id="1_qlywn"]
+[ext_resource type="Script" path="res://scripts/Mirror.gd" id="2_pilvg"]
+[ext_resource type="PackedScene" uid="uid://ljtjkfwrhkyx" path="res://scenes/Game_Tilemap.tscn" id="3_tenqe"]
+[ext_resource type="Texture2D" uid="uid://p8hfg26qkjyg" path="res://assets/sprites/Penguin.png" id="4_7vc0m"]
+[ext_resource type="Texture2D" uid="uid://btlhg0qjwux4c" path="res://assets/sprites/Egg.png" id="4_hk146"]
+[ext_resource type="Script" path="res://scripts/Penguin.gd" id="5_06807"]
+[ext_resource type="PackedScene" uid="uid://b7e0ug3qvxvgf" path="res://assets/sprites/audio_manager.tscn" id="6_0nc6w"]
+[ext_resource type="PackedScene" uid="uid://h1yelu3ud2s3" path="res://scenes/strom.tscn" id="7_1yw3v"]
+[ext_resource type="PackedScene" uid="uid://beumi8t5rpnls" path="res://scenes/Shine.tscn" id="10_i8x1a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27nd2"]
+radius = 14.0357
+
+[sub_resource type="Animation" id="Animation_xn3px"]
+resource_name = "Down"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_vfq14"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_arv0h"]
+resource_name = "Idle"
+length = 3.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 35]
+}
+
+[sub_resource type="Animation" id="Animation_meeht"]
+resource_name = "Left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_bhvw1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u3ba5"]
+resource_name = "Right"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_dx436"]
+resource_name = "Up"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_2x5ta"]
+resource_name = "Win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfyxp"]
+_data = {
+"Down": SubResource("Animation_xn3px"),
+"Fall": SubResource("Animation_vfq14"),
+"Idle": SubResource("Animation_arv0h"),
+"Left": SubResource("Animation_meeht"),
+"RESET": SubResource("Animation_bhvw1"),
+"Right": SubResource("Animation_u3ba5"),
+"Up": SubResource("Animation_dx436"),
+"Win": SubResource("Animation_2x5ta")
+}
+
+[node name="Generic" type="Node2D"]
+script = ExtResource("1_qlywn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -4)
+zoom = Vector2(2, 2)
+
+[node name="Mirror" type="Node2D" parent="."]
+script = ExtResource("2_pilvg")
+
+[node name="TileMap" parent="Mirror" instance=ExtResource("3_tenqe")]
+layer_0/tile_data = PackedInt32Array(-131071, 524294, 3, -65535, 131081, 1, 1, 524294, 0, 65537, 327686, 2, 131073, 262150, 2, 196609, 524294, 3, -131070, 655366, 3, -65534, 131081, 1, 2, 589830, 0, 65538, 589830, 1, 131074, 589830, 2, 196610, 327686, 3, -131069, 589830, 3, -65533, 131081, 1, 3, 327686, 1, 65539, 196614, 1, 131075, 458758, 0, 196611, 262150, 3, -131068, 589830, 2, -65532, 524294, 1, 4, 589830, 2, 65540, 327691, 1, 131076, 327691, 2, 196612, 589830, 3, -131067, 589830, 2, -65531, 589830, 2, 5, 393222, 1, 65541, 327691, 1, 131077, 327691, 2, 196613, 589830, 3, -131066, 589830, 2, -65530, 589830, 2, 6, 393222, 1, 65542, 327691, 1, 131078, 327691, 2, 196614, 655366, 3, -262143, 65548, 0, -196607, 589830, 2, -262142, 655366, 0, -196606, 589830, 2, -262141, 655366, 0, -196605, 589830, 2, -262140, 589830, 0, -196604, 589830, 2, -262139, 655366, 0, -196603, 589830, 2, -262138, 589830, 0, -196602, 589830, 2, -262137, 720902, 0, -196601, 720902, 1, -131065, 720902, 1, -65529, 720902, 1, 7, 720902, 2, 65543, 65542, 1, 131079, 720902, 1, 196615, 720902, 3, -262144, 196618, 1, -196608, 196618, 1, -131072, 196618, 1, -65536, 196618, 1, 0, 196618, 1, 65536, 196618, 1, 131072, 196618, 1, 196608, 196618, 1, 262145, 131082, 0, 262146, 131082, 0, 262147, 131082, 0, 262148, 131082, 0, 262149, 131082, 0, 262150, 131082, 0, 262151, 131082, 0, -262136, 65546, 1, -196600, 65546, 1, -131064, 65546, 1, -65528, 65546, 1, 8, 65546, 1, 65544, 65546, 1, 131080, 65546, 1, 196616, 65546, 1, -327679, 131082, 3, -327678, 131082, 3, -327677, 131082, 3, -327676, 131082, 3, -327675, 131082, 3, -327674, 131082, 3, -327673, 131082, 3, 262144, 262154, 3, 262152, 458762, 3, -327672, 458762, 0, -327680, 262154, 0)
+
+[node name="Egg" type="Sprite2D" parent="Mirror/TileMap"]
+position = Vector2(48, -115)
+texture = ExtResource("4_hk146")
+
+[node name="Penguin" type="Sprite2D" parent="Mirror"]
+z_index = 5
+position = Vector2(32, 32)
+texture = ExtResource("4_7vc0m")
+centered = false
+hframes = 6
+vframes = 7
+script = ExtResource("5_06807")
+
+[node name="Audio_Manager" parent="Mirror/Penguin" instance=ExtResource("6_0nc6w")]
+
+[node name="TileDetector" type="Area2D" parent="Mirror/Penguin"]
+position = Vector2(-18, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror/Penguin/TileDetector"]
+position = Vector2(31, 35)
+shape = SubResource("CircleShape2D_27nd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mirror/Penguin"]
+libraries = {
+"": SubResource("AnimationLibrary_bfyxp")
+}
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("7_1yw3v")]
+amount = 1
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("10_i8x1a")]
+
+[connection signal="animation_finished" from="Mirror/Penguin/AnimationPlayer" to="Mirror/Penguin" method="_on_animation_player_animation_finished"]
