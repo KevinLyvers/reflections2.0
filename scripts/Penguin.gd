@@ -60,7 +60,7 @@ func find_tilemap():
 func _process(delta):
 	 #var topLeft = get_camera_screen_center() - get_viewport_rect().size / 2  	
 	if first:
-		TextManager.start_dialog(Vector2(0,0.80 * bottom.y), lines)
+		#TextManager.start_dialog(Vector2(0,0.80 * bottom.y), lines)
 		spawn_coords = global_position
 		first = false
 	

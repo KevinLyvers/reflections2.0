@@ -16,10 +16,9 @@ func _input(event):
 	if firststroke:
 		return 
 		
-	if event is InputEventKey and event.pressed:	
+	if event is InputEventKey and event.is_released():	
 		var main = get_topmost_parent(self)
-		print(main)
-		main.change_level(1)
+		main.change_level(Globals.level_num)
 		
 
 func get_topmost_parent(node: Node) -> Node:

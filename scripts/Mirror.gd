@@ -10,7 +10,7 @@ func _ready():
 		if child.name != "Audio_Manager":
 			var dupped_child = child.duplicate()
 			self.add_child(dupped_child)
-			dupped_child.modulate = Color(0.35, 0.35, .6)
+			dupped_child.modulate = Color(0.35, 0.35, .8)
 			dupped_child.scale.x *= -1
 			
 			if child is Sprite2D:

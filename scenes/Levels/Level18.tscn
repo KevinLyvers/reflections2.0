@@ -1,0 +1,215 @@
+[gd_scene load_steps=20 format=3 uid="uid://vfdt5ks3ck0n"]
+
+[ext_resource type="Script" path="res://scripts/Generic_Level.gd" id="1_y0ui4"]
+[ext_resource type="Script" path="res://scripts/Mirror.gd" id="2_s87qd"]
+[ext_resource type="PackedScene" uid="uid://ljtjkfwrhkyx" path="res://scenes/Game_Tilemap.tscn" id="3_l5cqb"]
+[ext_resource type="Texture2D" uid="uid://btlhg0qjwux4c" path="res://assets/sprites/Egg.png" id="4_1wech"]
+[ext_resource type="Texture2D" uid="uid://p8hfg26qkjyg" path="res://assets/sprites/Penguin.png" id="5_tgtic"]
+[ext_resource type="Script" path="res://scripts/Penguin.gd" id="6_pwvux"]
+[ext_resource type="PackedScene" uid="uid://b7e0ug3qvxvgf" path="res://assets/sprites/audio_manager.tscn" id="7_k40wq"]
+[ext_resource type="PackedScene" uid="uid://h1yelu3ud2s3" path="res://scenes/strom.tscn" id="8_24j68"]
+[ext_resource type="PackedScene" uid="uid://beumi8t5rpnls" path="res://scenes/Shine.tscn" id="9_x5qvj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27nd2"]
+radius = 14.0357
+
+[sub_resource type="Animation" id="Animation_xn3px"]
+resource_name = "Down"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_vfq14"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_arv0h"]
+resource_name = "Idle"
+length = 3.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 35]
+}
+
+[sub_resource type="Animation" id="Animation_meeht"]
+resource_name = "Left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_bhvw1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u3ba5"]
+resource_name = "Right"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_dx436"]
+resource_name = "Up"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_2x5ta"]
+resource_name = "Win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfyxp"]
+_data = {
+"Down": SubResource("Animation_xn3px"),
+"Fall": SubResource("Animation_vfq14"),
+"Idle": SubResource("Animation_arv0h"),
+"Left": SubResource("Animation_meeht"),
+"RESET": SubResource("Animation_bhvw1"),
+"Right": SubResource("Animation_u3ba5"),
+"Up": SubResource("Animation_dx436"),
+"Win": SubResource("Animation_2x5ta")
+}
+
+[node name="Generic" type="Node2D"]
+script = ExtResource("1_y0ui4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="Mirror" type="Node2D" parent="."]
+script = ExtResource("2_s87qd")
+
+[node name="TileMap" parent="Mirror" instance=ExtResource("3_l5cqb")]
+position = Vector2(0, -32)
+layer_0/tile_data = PackedInt32Array(-131071, 9, 0, -65535, 327691, 1, 1, 327691, 1, 65537, 393222, 1, 131073, 393222, 1, 196609, 131082, 1, -131070, 65545, 0, -65534, 327686, 1, 2, 327691, 1, -131069, 131081, 0, -65533, 327691, 1, 3, 327691, 1, 65539, 131082, 1, 131075, 131082, 1, 196611, 131082, 1, -131068, 131081, 1, -65532, 131081, 1, 4, 131081, 2, 65540, 131082, 3, 131076, 131081, 2, 196612, 131081, 3, -131067, 10, 3, -65531, 196617, 1, 5, 196617, 2, 65541, 131082, 3, 131077, 196617, 2, 196613, 196617, 3, -131066, 10, 3, -65530, 393222, 1, 6, 393222, 1, 65542, 393222, 1, 131078, 393222, 1, 196614, 393222, 1, -262143, 327691, 1, -196607, 327691, 2, -262142, 393222, 1, -196606, 393227, 2, -262141, 393222, 1, -196605, 393222, 1, -262140, 393222, 1, -196604, 393222, 1, -262139, 131082, 1, -196603, 131082, 1, -262138, 393222, 1, -196602, 393222, 1, -262137, 393222, 1, -196601, 393222, 1, -131065, 393222, 1, -65529, 393222, 1, 7, 393222, 1, 65543, 393222, 1, 131079, 393222, 1, 196615, 393222, 1, -262144, 327690, 1, -196608, 327690, 1, -131072, 327690, 1, -65536, 327690, 1, 0, 327690, 1, 65536, 327690, 1, 131072, 327690, 1, 196608, 327690, 1, 262145, 393222, 1, 262146, 327686, 1, 262147, 393222, 1, 262148, 393222, 1, 262149, 393222, 1, 262150, 393222, 1, 262151, 393222, 1, -262136, 393222, 1, -196600, 393222, 1, -131064, 393222, 1, -65528, 393222, 1, 8, 327690, 1, 65544, 393222, 1, 131080, 393222, 1, 196616, 393222, 1, -327679, 393222, 1, -327678, 393222, 1, -327677, 393222, 1, -327676, 393222, 1, -327675, 393222, 1, -327674, 393222, 1, -327673, 393222, 1, 262144, 327690, 1, 262152, 393222, 1, -327672, 393222, 1, -327680, 327690, 1, -393216, 327690, 1, -393215, 393222, 1, -393214, 393222, 1, -393213, 131084, 1, -393212, 327686, 2, -393211, 327690, 1, -393210, 327690, 1, -393209, 393226, 1, -393208, 393226, 1, 327681, 393222, 1, 327682, 393222, 1, 327683, 393222, 1, 327684, 393222, 1, 327685, 393222, 1, 327686, 393222, 1, 327687, 393222, 1, 327688, 327690, 1, -393207, 393222, 1, -327671, 393222, 1, -262135, 393222, 1, -196599, 393222, 1, -131063, 393222, 1, -65527, 327690, 1, 9, 327690, 1, 65545, 393222, 1, 131081, 393222, 1, 196617, 393222, 1, 262153, 393222, 1, 327689, 327690, 1, -393206, 393222, 1, -327670, 393222, 1, -262134, 393222, 1, -196598, 393222, 1, -131062, 327690, 1, -65526, 327690, 1, 10, 393222, 1, 65546, 393222, 1, 131082, 393222, 1, 196618, 393222, 1, 262154, 393222, 1, 327690, 327690, 1, 327680, 327690, 1, 393216, 327690, 1, 393217, 393222, 1, 393218, 393222, 1, 393219, 393222, 1, 393220, 131081, 1, 393221, 131081, 1, 393222, 131081, 1, 393223, 131081, 1, 393224, 131081, 1, 393225, 131081, 1, 393226, 131081, 1, 393227, 393222, 1, -458741, 393222, 1, -393205, 393222, 1, -327669, 393222, 1, -262133, 393222, 1, -196597, 393222, 1, -131061, 327690, 1, -65525, 393222, 1, 11, 393222, 1, 65547, 393222, 1, 131083, 393222, 1, 196619, 393222, 1, 262155, 393222, 1, 327691, 393222, 1, -524288, 327690, 1, -458752, 327690, 1, -524287, 327691, 1, -458751, 393222, 1, -524286, 393227, 1, -458750, 327686, 2, -524285, 393222, 1, -458749, 393222, 1, -524284, 393222, 1, -458748, 131082, 1, -524283, 393222, 1, -458747, 131082, 1, -524282, 393222, 1, -458746, 131082, 1, -524281, 393226, 1, -458745, 393226, 1, -524280, 393226, 1, -458744, 393226, 1, -524279, 458761, 3, -458743, 393222, 1, -524278, 393222, 1, -458742, 393222, 1, -524277, 393222, 1, -655360, 327690, 1, -589824, 196618, 1, 458752, 327690, 1, 524288, 327690, 1, 589824, 327690, 1, -655359, 327690, 1, -589823, 196618, 1, 458753, 393222, 1, 524289, 393222, 1, 589825, 262154, 1, -655358, 327690, 1, -589822, 196618, 1, 458754, 393222, 1, 524290, 393222, 1, 589826, 262154, 1, -655357, 327690, 1, -589821, 196618, 1, 458755, 393222, 1, 524291, 393222, 1, 589827, 262154, 1, -655356, 327690, 1, -589820, 196618, 1, 458756, 131081, 1, 524292, 131081, 1, 589828, 131081, 1, -655355, 327690, 1, -589819, 196618, 1, 458757, 131081, 1, 524293, 131081, 1, 589829, 131081, 1, -655354, 327690, 1, -589818, 196618, 1, 458758, 131081, 1, 524294, 131081, 1, 589830, 131081, 1, -655353, 327690, 1, -589817, 196618, 1, 458759, 131081, 1, 524295, 131081, 1, 589831, 131081, 1, -655352, 327690, 1, -589816, 393226, 1, 458760, 131081, 1, 524296, 131081, 1, 589832, 131081, 1, -655351, 327690, 1, -589815, 196618, 1, 458761, 131081, 1, 524297, 131081, 1, 589833, 131081, 1, -655350, 327690, 1, -589814, 196618, 1, 458762, 131081, 1, 524298, 131081, 1, 589834, 131081, 1, -655349, 327690, 1, -589813, 196618, 1, 458763, 393227, 1, 524299, 393227, 1, 589835, 65545, 1, -655348, 327690, 1, -589812, 196618, 1, -524276, 393222, 1, -458740, 393222, 1, -393204, 393222, 1, -327668, 393222, 1, -262132, 393222, 1, -196596, 393222, 1, -131060, 393222, 1, -65524, 393222, 1, 12, 393222, 1, 65548, 393222, 1, 131084, 393222, 1, 196620, 393222, 1, 262156, 393222, 1, 327692, 393222, 1, 393228, 393222, 1, 458764, 393222, 1, 524300, 393222, 1, 589836, 65545, 1, -655347, 327690, 1, -589811, 196618, 1, -524275, 196617, 0, -458739, 10, 3, -393203, 327691, 1, -327667, 393222, 1, -262131, 327691, 1, -196595, 393222, 1, -131059, 393222, 1, -65523, 393222, 1, 13, 393222, 1, 65549, 393222, 1, 131085, 10, 3, 196621, 393225, 2, 262157, 393222, 1, 327693, 393222, 1, 393229, 393222, 1, 458765, 393222, 1, 524301, 393222, 1, 589837, 65545, 1, -655346, 327690, 1, -589810, 196618, 1, -524274, 262153, 0, -458738, 327691, 1, -393202, 393222, 1, -327666, 393222, 1, -262130, 393222, 1, -196594, 393222, 1, -131058, 393222, 1, -65522, 393222, 1, 14, 393222, 1, 65550, 393222, 1, 131086, 10, 3, 196622, 393225, 2, 262158, 393222, 1, 327694, 393222, 1, 393230, 393222, 1, 458766, 393222, 1, 524302, 393222, 1, 589838, 65545, 1, -655345, 327690, 1, -589809, 196618, 1, -524273, 262153, 0, -458737, 393227, 1, -393201, 393227, 2, -327665, 393222, 1, -262129, 393222, 1, -196593, 393222, 1, -131057, 393222, 1, -65521, 393222, 1, 15, 393222, 1, 65551, 393222, 1, 131087, 65545, 1, 196623, 393225, 2, 262159, 393222, 1, 327695, 393222, 1, 393231, 393222, 1, 458767, 393222, 1, 524303, 393222, 1, 589839, 393222, 1, -655344, 327690, 1, -589808, 196618, 1, -524272, 131081, 0, -458736, 131081, 1, -393200, 9, 0, -327664, 9, 1, -262128, 9, 2, -196592, 9, 3, -131056, 327690, 1, -65520, 327690, 1, 16, 327690, 1, 65552, 327690, 1, 131088, 10, 3, 196624, 393225, 2, 262160, 327691, 1, 327696, 327691, 2, 393232, 393222, 1, 458768, 393222, 1, 524304, 393227, 1, 589840, 393227, 1, -720896, 327690, 1, -720895, 327690, 1, -720894, 327690, 1, -720893, 327690, 1, -720892, 327690, 1, -720891, 327690, 1, -720890, 327690, 1, -720889, 327690, 1, -720888, 327690, 1, -720887, 327690, 1, -720886, 327690, 1, -720885, 327690, 1, -720884, 327690, 1, -720883, 327690, 1, -720882, 327690, 1, -720881, 327690, 1, -720880, 327690, 1, 655360, 327690, 1, 655361, 327690, 1, 655362, 327690, 1, 655363, 327690, 1, 655364, 327690, 1, 655365, 327690, 1, 655366, 327690, 1, 655367, 327690, 1, 655368, 327690, 1, 655369, 327690, 1, 655370, 327690, 1, 655371, 327690, 1, 655372, 327690, 1, 655373, 327690, 1, 655374, 327690, 1, 655375, 327690, 1, 655376, 327690, 1, 655377, 327690, 1, 655378, 327690, 1, -720878, 327690, 1, -655342, 327690, 1, -589806, 327690, 1, -524270, 327690, 1, -458734, 327690, 1, -393198, 327690, 1, -327662, 327690, 1, -262126, 327690, 1, -196590, 327690, 1, -131054, 327690, 1, -65518, 327690, 1, 18, 327690, 1, 65554, 327690, 1, 131090, 327690, 1, 196626, 327690, 1, 262162, 393226, 1, 327698, 327690, 1, 393234, 327690, 1, 458770, 327690, 1, 524306, 327690, 1, 589842, 327690, 1, -720879, 327690, 1, -655343, 327690, 1, -589807, 196618, 1, -524271, 393226, 2, -458735, 393226, 2, -393199, 393226, 2, -327663, 393226, 2, -262127, 393226, 2, -196591, 65545, 3, -131055, 327690, 1, -65519, 196617, 2, 17, 196617, 2, 65553, 196617, 2, 131089, 393225, 2, 196625, 393225, 2, 262161, 393227, 1, 327697, 393227, 2, 393233, 393222, 1, 458769, 393222, 1, 524305, 393222, 1, 589841, 393222, 1, 65538, 327686, 1, 131074, 327686, 1, 196610, 327686, 1)
+
+[node name="Egg" type="Sprite2D" parent="Mirror/TileMap"]
+position = Vector2(96, -192)
+texture = ExtResource("4_1wech")
+centered = false
+
+[node name="Penguin" type="Sprite2D" parent="Mirror"]
+z_index = 5
+position = Vector2(64, 224)
+texture = ExtResource("5_tgtic")
+centered = false
+hframes = 6
+vframes = 7
+script = ExtResource("6_pwvux")
+
+[node name="Audio_Manager" parent="Mirror/Penguin" instance=ExtResource("7_k40wq")]
+
+[node name="TileDetector" type="Area2D" parent="Mirror/Penguin"]
+position = Vector2(-18, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror/Penguin/TileDetector"]
+position = Vector2(31, 35)
+shape = SubResource("CircleShape2D_27nd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mirror/Penguin"]
+libraries = {
+"": SubResource("AnimationLibrary_bfyxp")
+}
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("8_24j68")]
+amount = 1
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("9_x5qvj")]
+
+[connection signal="animation_finished" from="Mirror/Penguin/AnimationPlayer" to="Mirror/Penguin" method="_on_animation_player_animation_finished"]

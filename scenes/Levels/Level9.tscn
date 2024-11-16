@@ -1,14 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://dc2shapox7wt"]
+[gd_scene load_steps=20 format=3 uid="uid://bqeaqna3naocj"]
 
-[ext_resource type="Script" path="res://scripts/Generic_Level.gd" id="1_eea2f"]
-[ext_resource type="Script" path="res://scripts/Mirror.gd" id="3_8vqub"]
-[ext_resource type="PackedScene" uid="uid://ljtjkfwrhkyx" path="res://scenes/Game_Tilemap.tscn" id="4_7v57r"]
-[ext_resource type="Texture2D" uid="uid://btlhg0qjwux4c" path="res://assets/sprites/Egg.png" id="4_7xr8r"]
-[ext_resource type="Texture2D" uid="uid://p8hfg26qkjyg" path="res://assets/sprites/Penguin.png" id="5_us1gl"]
-[ext_resource type="Script" path="res://scripts/Penguin.gd" id="6_n7li6"]
-[ext_resource type="PackedScene" uid="uid://h1yelu3ud2s3" path="res://scenes/strom.tscn" id="7_1npvl"]
-[ext_resource type="PackedScene" uid="uid://b7e0ug3qvxvgf" path="res://assets/sprites/audio_manager.tscn" id="7_ry7qq"]
-[ext_resource type="PackedScene" uid="uid://beumi8t5rpnls" path="res://scenes/Shine.tscn" id="8_l44u6"]
+[ext_resource type="Script" path="res://scripts/Generic_Level.gd" id="1_jv2x1"]
+[ext_resource type="Script" path="res://scripts/Mirror.gd" id="2_mlfj5"]
+[ext_resource type="PackedScene" uid="uid://ljtjkfwrhkyx" path="res://scenes/Game_Tilemap.tscn" id="3_mmce1"]
+[ext_resource type="Texture2D" uid="uid://btlhg0qjwux4c" path="res://assets/sprites/Egg.png" id="4_4bsho"]
+[ext_resource type="Texture2D" uid="uid://p8hfg26qkjyg" path="res://assets/sprites/Penguin.png" id="5_u5n8c"]
+[ext_resource type="Script" path="res://scripts/Penguin.gd" id="6_dxpbq"]
+[ext_resource type="PackedScene" uid="uid://b7e0ug3qvxvgf" path="res://assets/sprites/audio_manager.tscn" id="7_fusbr"]
+[ext_resource type="PackedScene" uid="uid://h1yelu3ud2s3" path="res://scenes/strom.tscn" id="8_tksx3"]
+[ext_resource type="PackedScene" uid="uid://beumi8t5rpnls" path="res://scenes/Shine.tscn" id="9_7etv1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27nd2"]
 radius = 14.0357
@@ -167,32 +167,33 @@ _data = {
 }
 
 [node name="Generic" type="Node2D"]
-script = ExtResource("1_eea2f")
+script = ExtResource("1_jv2x1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -4)
 zoom = Vector2(2, 2)
 
 [node name="Mirror" type="Node2D" parent="."]
-script = ExtResource("3_8vqub")
+script = ExtResource("2_mlfj5")
 
-[node name="TileMap" parent="Mirror" instance=ExtResource("4_7v57r")]
-layer_0/tile_data = PackedInt32Array(-131071, 65542, 1, -65535, 131082, 3, 1, 65542, 1, 65537, 65542, 1, 131073, 262150, 2, 196609, 131081, 2, -131070, 589830, 1, -65534, 131082, 3, 2, 589830, 2, 65538, 589830, 2, 131074, 589830, 2, 196610, 196617, 2, -131069, 589830, 1, -65533, 196618, 3, 3, 589830, 2, 65539, 589830, 2, 131075, 589830, 2, 196611, 262153, 2, -131068, 589830, 2, -65532, 589830, 1, 4, 589830, 2, 65540, 589830, 2, 131076, 589830, 2, 196612, 327689, 2, -131067, 589830, 2, -65531, 589830, 2, 5, 589830, 1, 65541, 589830, 2, 131077, 589830, 2, 196613, 262153, 3, -131066, 589830, 2, -65530, 589830, 2, 6, 589830, 1, 65542, 589830, 1, 131078, 589830, 2, 196614, 262153, 1, -262143, 65548, 0, -196607, 589830, 2, -262142, 655366, 0, -196606, 589830, 2, -262141, 655366, 0, -196605, 589830, 2, -262140, 589830, 0, -196604, 589830, 2, -262139, 327690, 1, -196603, 589830, 2, -262138, 327690, 1, -196602, 589830, 2, -262137, 327690, 1, -196601, 65546, 1, -131065, 196617, 0, -65529, 196617, 1, 7, 262154, 1, 65543, 196617, 3, 131079, 196617, 2, 196615, 196617, 3, -262144, 196618, 1, -196608, 196618, 1, -131072, 393226, 2, -65536, 393226, 1, 0, 196618, 1, 65536, 196618, 1, 131072, 196618, 1, 196608, 196618, 1, 262145, 131082, 0, 262146, 131082, 0, 262147, 131082, 0, 262148, 131082, 0, 262149, 131082, 0, 262150, 131082, 0, 262151, 131082, 0, -262136, 65546, 1, -196600, 65546, 1, -131064, 65546, 1, -65528, 65546, 1, 8, 327690, 1, 65544, 65546, 1, 131080, 65546, 1, 196616, 65546, 1, -327679, 131082, 3, -327678, 131082, 3, -327677, 131082, 3, -327676, 131082, 3, -327675, 131082, 3, -327674, 131082, 3, -327673, 131082, 3, 262144, 262154, 3, 262152, 458762, 3, -327672, 458762, 0, -327680, 262154, 0, -393216, 393226, 1, -393215, 393226, 1, -393214, 393226, 1, -393213, 393226, 1, -393212, 393226, 1, -393211, 393226, 1, -393210, 393226, 1, -393209, 393226, 1, -393208, 393226, 1)
+[node name="TileMap" parent="Mirror" instance=ExtResource("3_mmce1")]
+layer_0/tile_data = PackedInt32Array(-131071, 393226, 2, -65535, 327690, 1, 1, 327686, 1, 65537, 131081, 0, 131073, 131081, 1, 196609, 131081, 2, -131070, 327686, 1, -65534, 327690, 1, 2, 327686, 1, 65538, 327690, 1, 131074, 327690, 1, 196610, 327690, 1, -131069, 327686, 1, -65533, 327690, 1, 3, 327686, 1, 65539, 327686, 1, 131075, 327686, 1, 196611, 327686, 1, -131068, 327686, 1, -65532, 327686, 1, 4, 327686, 1, 65540, 327686, 1, 131076, 327686, 1, 196612, 327686, 1, -131067, 327686, 1, -65531, 196617, 1, 5, 393227, 2, 65541, 327686, 1, 131077, 327686, 1, 196613, 327686, 1, -131066, 327686, 1, -65530, 327686, 1, 6, 327686, 1, 65542, 327690, 1, 131078, 327690, 1, 196614, 327690, 1, -262143, 393226, 2, -196607, 393226, 2, -262142, 327686, 1, -196606, 327686, 1, -262141, 327686, 1, -196605, 327686, 1, -262140, 327686, 1, -196604, 327686, 1, -262139, 327686, 1, -196603, 393228, 2, -262138, 327686, 1, -196602, 327686, 1, -262137, 393226, 2, -196601, 327686, 1, -131065, 327686, 1, -65529, 327686, 1, 7, 327686, 1, 65543, 327691, 2, 131079, 196617, 2, 196615, 196617, 3, -262144, 196618, 1, -196608, 196618, 1, -131072, 393226, 2, -65536, 393226, 1, 0, 196618, 1, 65536, 196618, 1, 131072, 196618, 1, 196608, 196618, 1, 262145, 131082, 0, 262146, 131082, 0, 262147, 131082, 0, 262148, 131082, 0, 262149, 131082, 0, 262150, 131082, 0, 262151, 131082, 0, -262136, 65546, 1, -196600, 65546, 1, -131064, 65546, 1, -65528, 65546, 1, 8, 327690, 1, 65544, 65546, 1, 131080, 65546, 1, 196616, 65546, 1, -327679, 131082, 3, -327678, 131082, 3, -327677, 131082, 3, -327676, 131082, 3, -327675, 327690, 1, -327674, 131082, 3, -327673, 131082, 3, 262144, 262154, 3, 262152, 458762, 3, -327672, 458762, 0, -327680, 262154, 0, -393216, 327690, 1, -393215, 327690, 1, -393214, 327690, 1, -393213, 327690, 1, -393212, 327690, 1, -393211, 327690, 1, -393210, 327690, 1, -393209, 327690, 1, -393208, 327690, 1)
 
 [node name="Egg" type="Sprite2D" parent="Mirror/TileMap"]
-position = Vector2(48, -115)
-texture = ExtResource("4_7xr8r")
+position = Vector2(160, -96)
+texture = ExtResource("4_4bsho")
+centered = false
 
 [node name="Penguin" type="Sprite2D" parent="Mirror"]
 z_index = 5
-position = Vector2(32, 32)
-texture = ExtResource("5_us1gl")
+position = Vector2(128, 96)
+texture = ExtResource("5_u5n8c")
 centered = false
 hframes = 6
 vframes = 7
-script = ExtResource("6_n7li6")
+script = ExtResource("6_dxpbq")
 
-[node name="Audio_Manager" parent="Mirror/Penguin" instance=ExtResource("7_ry7qq")]
+[node name="Audio_Manager" parent="Mirror/Penguin" instance=ExtResource("7_fusbr")]
 
 [node name="TileDetector" type="Area2D" parent="Mirror/Penguin"]
 position = Vector2(-18, -18)
@@ -206,9 +207,9 @@ libraries = {
 "": SubResource("AnimationLibrary_bfyxp")
 }
 
-[node name="CPUParticles2D" parent="." instance=ExtResource("7_1npvl")]
+[node name="CPUParticles2D" parent="." instance=ExtResource("8_tksx3")]
 amount = 1
 
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("8_l44u6")]
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("9_7etv1")]
 
 [connection signal="animation_finished" from="Mirror/Penguin/AnimationPlayer" to="Mirror/Penguin" method="_on_animation_player_animation_finished"]
